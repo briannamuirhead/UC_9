@@ -31,6 +31,7 @@ function addDigit(dig) {
     } else {
         currentInput = currentInput + dig;
     }
+
     displayCurrentInput();
 }
 /**
@@ -48,6 +49,7 @@ function addDecimal() {
             currentInput = currentInput + ".";
         }
     }
+
     displayCurrentInput();
 }
 
@@ -66,12 +68,17 @@ function allClear() {
  * @param {string} op The user's choice of operator
  */
 function storeOperator(op) {
-    if (op.indexOf("*") > -1) { operator = 1; };       //codes for *
-    if (op.indexOf("/") > -1) { operator = 2; };       // slash (divide)
-    if (op.indexOf("+") > -1) { operator = 3; };       // sum
-    if (op.indexOf("-") > -1) { operator = 4; };       // difference
+    if (op.indexOf("*") > -1) {
+        operator = 1;                       //codes for *
+    } if (op.indexOf("/") > -1) {
+        operator = 2;                       // slash (divide)
+    } if (op.indexOf("+") > -1) {
+        operator = 3;                       // sum
+    } if (op.indexOf("-") > -1) {
+        operator = 4;                       // difference
+    }
 
-    memory = currentInput;                 //store value
+    memory = currentInput;                  //store value
     currentInput = "0";
     displayCurrentInput();
 }
@@ -79,14 +86,20 @@ function storeOperator(op) {
  * Calculate using operator, the memory and what is current
  */
 function calculate() {
-    if (operator == 1) { currentInput = eval(memory) * eval(currentInput); };
-    if (operator == 2) { currentInput = eval(memory) / eval(currentInput); };
-    if (currentInput == memory/0) { currentInput = "ERROR! You can't divide by zero."; };
-    if (operator == 3) { currentInput = eval(memory) + eval(currentInput); };
-    if (operator == 4) { currentInput = eval(memory) - eval(currentInput); };
+    if (operator == 1) {
+        currentInput = eval(memory) * eval(currentInput);
+    } if (operator == 2) {
+        currentInput = eval(memory) / eval(currentInput);
+    } if (currentInput == memory / 0) {
+        currentInput = "ERROR! You can't divide by zero.";
+    } if (operator == 3) {
+        currentInput = eval(memory) + eval(currentInput);
+    } if (operator == 4) {
+        currentInput = eval(memory) - eval(currentInput);
+    }
 
-    operator = 0;                //clear operator
-    memory = "0";              //clear memory
+    operator = 0;                // clear operator
+    memory = "0";              // clear memory
     displayCurrentInput();
 }
 
@@ -123,9 +136,10 @@ function percentage() {
 function factorial(number) {
     var result = 1;
     for(i = number; i > 0; i--){
-        result = result*i;
+        result = result * i;
         console.log(result);
     }
+
     return result;
 }
 
@@ -148,6 +162,6 @@ function squareRoot() {
  * Calculates the inverse of the current input.
  */
 function inverse() {
-    currentInput = 1/currentInput;
+    currentInput = 1 / currentInput;
     displayCurrentInput();
 }

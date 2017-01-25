@@ -13,13 +13,16 @@
 var currentInput = "0";
 var memory = "0";
 var operator = 0;
-
-// Helper function for displaying the current input
+/**
+* This function displays the user's current input in the calculator's text box.
+*/
 function displayCurrentInput() {
     document.getElementById('screen').value = currentInput;
 }
-
-// Adds a digit to the current input
+/**
+ * This function adds a digit to the current input. Calls displayCurrentInput.
+ * @param {number} dig The digit clicked on by user
+ */
 function addDigit(dig) {
     if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
         currentInput = dig;
@@ -30,8 +33,9 @@ function addDigit(dig) {
     }
     displayCurrentInput();
 }
-
-// Adds a decimal to the current input
+/**
+ * Adds a decimal to the current input. Calls displayCurrentInput to display user's full input including decimal.
+ */
 function addDecimal() {
     if (currentInput.length == 0) {
         //no leading ".", use "0."
@@ -47,7 +51,9 @@ function addDecimal() {
     displayCurrentInput();
 }
 
-// Clears everything.
+/**
+ * Clears the calculator's memory and everything inside the textbox. Calls displayCurrentInput to display nothing.
+ */
 function allClear() {
     currentInput = "0";
     operator = 0;                //clear operator
@@ -55,7 +61,10 @@ function allClear() {
     displayCurrentInput();
 }
 
-// Stores the last operator pushed for multiply, divide, add, or subtract.
+/**
+ * Stores the last operator pushed for multiply, divide, add, or subtract. Calls displayCurrentInput to display operator.
+ * @param {string} op The user's choice of operator
+ */
 function storeOperator(op) {
     if (op.indexOf("*") > -1) { operator = 1; };       //codes for *
     if (op.indexOf("/") > -1) { operator = 2; };       // slash (divide)
@@ -66,8 +75,9 @@ function storeOperator(op) {
     currentInput = "0";
     displayCurrentInput();
 }
-
-// Calculate using operator, the memory and what is current
+/**
+ * Calculate using operator, the memory and what is current
+ */
 function calculate() {
     if (operator == 1) { currentInput = eval(memory) * eval(currentInput); };
     if (operator == 2) { currentInput = eval(memory) / eval(currentInput); };
@@ -80,25 +90,36 @@ function calculate() {
     displayCurrentInput();
 }
 
-// Change the sign of the current input
+/**
+ * Changes the sign of the current input when change sign button is clicked
+ */
 function changeSign() {
     currentInput = currentInput * -1;
     displayCurrentInput();
 }
 
-// Clear the current input back to 0
+/**
+ * Clears the current input back to 0
+ */
 function clearCurrent() {
     currentInput = "0";
     displayCurrentInput();
 }
 
-// Change the current input to a percentage
+/**
+ * Makes the current input a percentage.
+ */
 function percentage() {
     currentInput = currentInput / 100;
     displayCurrentInput();
 }
 
-// Calculate the factorial of the current input
+
+/**
+ * Creates a factorial
+ * @param   {number} number The user's current input
+ * @returns {number} The result of the factorial
+ */
 function factorial(number) {
     var result = 1;
     for(i = number; i > 0; i--){
@@ -108,19 +129,24 @@ function factorial(number) {
     return result;
 }
 
-// Calculate the square of the current input
+/**
+ * Calculates the square of the current input. Calls displayCurrentInput.
+ */
 function square() {
     currentInput = currentInput * currentInput;
     displayCurrentInput();
 }
 
-// Calculate the square root of the current input
+/**
+ * Calculates the square root of the current  input.
+ */
 function squareRoot() {
     currentInput = Math.sqrt(currentInput);
     displayCurrentInput();
 }
-
-// Calculate the inverse of the current input
+/**
+ * Calculates the inverse of the current input.
+ */
 function inverse() {
     currentInput = 1/currentInput;
     displayCurrentInput();

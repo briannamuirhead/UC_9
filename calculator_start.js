@@ -28,6 +28,7 @@ function addDigit(dig) {
     } else {
         currentInput = currentInput + dig;
     }
+
     displayCurrentInput();
 }
 
@@ -79,7 +80,7 @@ function calculate() {
         currentInput = eval(memory) * eval(currentInput);
     } if (operator == 2) {
         currentInput = eval(memory) / eval(currentInput);
-    } if (currentInput == memory/0) {
+    } if (currentInput == memory / 0) {
         currentInput = "ERROR! You can't divide by zero.";
     } if (operator == 3) {
         currentInput = eval(memory) + eval(currentInput);
@@ -114,7 +115,7 @@ function percentage() {
 function factorial(number) {
     var result = 1;
     for(i = number; i > 0; i--){
-        result = result*i;
+        result = result * i;
         console.log(result);
     }
 
@@ -135,6 +136,6 @@ function squareRoot() {
 
 // Calculate the inverse of the current input
 function inverse() {
-    currentInput = 1/currentInput;
+    currentInput = 1 / currentInput;
     displayCurrentInput();
 }

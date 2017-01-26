@@ -13,12 +13,14 @@
 var currentInput = "0";
 var memory = "0";
 var operator = 0;
+
 /**
 * This function displays the user's current input in the calculator's text box.
 */
 function displayCurrentInput() {
     document.getElementById('screen').value = currentInput;
 }
+
 /**
  * This function adds a digit to the current input. Calls displayCurrentInput.
  * @param {number} dig The digit clicked on by user
@@ -31,9 +33,9 @@ function addDigit(dig) {
     } else {
         currentInput = currentInput + dig;
     }
-
     displayCurrentInput();
 }
+
 /**
  * Adds a decimal to the current input. Calls displayCurrentInput to display user's full input including decimal.
  */
@@ -49,7 +51,6 @@ function addDecimal() {
             currentInput = currentInput + ".";
         }
     }
-
     displayCurrentInput();
 }
 
@@ -64,24 +65,29 @@ function allClear() {
 }
 
 /**
- * Stores the last operator pushed for multiply, divide, add, or subtract. Calls displayCurrentInput to display operator.
+ * Stores the last operator pushed for multiply, divide, add, subtract, power, or exponent. Calls displayCurrentInput to display operator.
  * @param {string} op The user's choice of operator
  */
 function storeOperator(op) {
     if (op.indexOf("*") > -1) {
-        operator = 1;                       //codes for *
+        operator = 1;                       // codes for *
     } if (op.indexOf("/") > -1) {
         operator = 2;                       // slash (divide)
     } if (op.indexOf("+") > -1) {
         operator = 3;                       // sum
     } if (op.indexOf("-") > -1) {
         operator = 4;                       // difference
+    } if (op.indexOf("p") > -1) {
+        operator = 5;                       // power
+    } if (op.indexOf("e") > -1) {
+        operator = 6;                       // exponent
     }
 
     memory = currentInput;                  //store value
     currentInput = "0";
     displayCurrentInput();
 }
+
 /**
  * Calculate using operator, the memory and what is current
  */
@@ -96,6 +102,14 @@ function calculate() {
         currentInput = eval(memory) + eval(currentInput);
     } if (operator == 4) {
         currentInput = eval(memory) - eval(currentInput);
+    } if (operator == 5) {
+        currentInput = Math.pow(memory,currentInput);
+    } if (operator == 6) {
+        var num = currentInput;
+        currentInput = memory * Math.pow(10,currentInput);
+        if (num > 15 ) {
+            currentInput = memory + "e" + num;
+        }
     }
 
     operator = 0;                // clear operator
@@ -127,7 +141,6 @@ function percentage() {
     displayCurrentInput();
 }
 
-
 /**
  * Creates a factorial
  * @param   {number} number The user's current input
@@ -139,7 +152,6 @@ function factorial(number) {
         result = result * i;
         console.log(result);
     }
-
     return result;
 }
 
@@ -152,16 +164,93 @@ function square() {
 }
 
 /**
- * Calculates the square root of the current  input.
+ * Calculates the square root of the current input.
  */
 function squareRoot() {
     currentInput = Math.sqrt(currentInput);
     displayCurrentInput();
 }
+
 /**
  * Calculates the inverse of the current input.
  */
 function inverse() {
     currentInput = 1 / currentInput;
+    displayCurrentInput();
+}
+
+/**
+ * Makes pi the current input.
+ */
+function enterPi() {
+    currentInput = Math.PI;
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the sine in radians.
+ */
+function rsin() {
+    currentInput = Math.sin(currentInput);
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    }
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the cosine in radians.
+ */
+function rcos() {
+    currentInput = Math.cos(currentInput);
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    }
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the tangent in radians.
+ */
+function rtan() {
+    currentInput = Math.tan(currentInput);
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    } if (currentInput > .999999 && currentInput < 1.000001) {
+        currentInput = 1;
+    }
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the sine in degrees.
+ */
+function dsin() {
+    currentInput = Math.sin(currentInput * (Math.PI / 180));
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    }
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the cosine in degrees.
+ */
+function dcos() {
+    currentInput = Math.cos(currentInput * (Math.PI / 180));
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    }
+    displayCurrentInput();
+}
+
+/**
+ * Calculates the tangent in degrees.
+ */
+function dtan() {
+    currentInput = Math.tan(currentInput * (Math.PI / 180));
+    if (currentInput < .00001 && currentInput > -.00001) {
+        currentInput = 0;
+    }
     displayCurrentInput();
 }

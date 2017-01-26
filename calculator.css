@@ -1,0 +1,39 @@
+body {
+    padding-left: 30px;
+    padding-top: 10px;
+
+}
+
+h1 {
+    color: skyblue
+}
+
+.row2 {
+    color: white;
+    background-color: lightslategray;
+}
+.top {
+    color: white;
+    background-color: palevioletred;
+}
+
+.trig {
+    color: white;
+    background-color: lightseagreen;
+}
+
+.num {
+    color: white;
+    background-color: yellowgreen
+}
+
+.op {
+    color: white;
+    background-color: #8f82c9;
+}
+
+.equal {
+    width: 75px;
+    color: white;
+    background-color: skyblue
+}

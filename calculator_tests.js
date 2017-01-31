@@ -14,3 +14,11 @@ QUnit.test( "Add decimal test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
     currentInput = "0";
 });
+
+// Test changing the sign of a number THIS DOESNT WORK
+QUnit.test( "Change sign test", function( assert ) {
+    changeSign('-3')
+    assert.equal(document.getElementById("screen").value, "-3", "Passed - Expected -3");
+    currentInput = "0";
+});
+

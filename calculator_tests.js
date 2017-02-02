@@ -45,3 +45,32 @@ QUnit.test("Tan radians test", function (assert) {
     var result = rtan(angle2_tanr);
     assert.deepEqual(result, 0, "We expect the result to be 0.");
 });
+QUnit.test("Sin degrees test", function (assert) {
+    var angle1_sind = 30;
+    var result = dsin(angle1_sind);
+    assert.deepEqual(result, .5, "We expect the result to be .5");
+    var angle2_sind = 180;
+    var result = dsin(angle2_sind);
+    assert.deepEqual(result, 0, "We expect the result to be 0.");
+});
+QUnit.test("Cos degrees dest", function(assert) {
+    var angle1_cosd = 60;
+    var result = dcos(angle1_cosd);
+    assert.deepEqual(result, .5, "We expect the result to be .5.")
+    var angle2_cosd = 180;
+    var result = dcos(angle2_cosd);
+    assert.deepEqual(result, -1, "We expect the result to be -1.");
+    var angle3_cosd = 0;
+    var result = dcos(angle3_cosd);
+    assert.deepEqual(result, 1, "We expect the result to be 1.");
+});
+QUnit.test("Tan degrees dest", function(assert) {
+    var angle1_tand = 45;
+    var result = dtan(angle1_tand);
+    assert.deepEqual(result, 1, "We expect the result to be 1.")
+    var angle2_tand = 180;
+    var result = dtan(angle2_tand);
+    assert.deepEqual(result, 0, "We expect the result to be 0.");
+});
+
+

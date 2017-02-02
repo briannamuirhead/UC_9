@@ -15,9 +15,10 @@ QUnit.test( "Add decimal test", function( assert ) {
     currentInput = "0";
 });
 
-// Test changing the sign of a number THIS DOESNT WORK
+// Test changing the sign of a number
 QUnit.test( "Change sign test", function( assert ) {
-    changeSign('-3')
+    addDigit('3')
+    changeSign();
     assert.equal(document.getElementById("screen").value, "-3", "Passed - Expected -3");
     currentInput = "0";
 });

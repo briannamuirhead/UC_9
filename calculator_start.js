@@ -183,6 +183,9 @@ function rsin() {
     if (currentInput < .00001 && currentInput > -.00001) {
         currentInput = 0;
     }
+    if (currentInput > .49 && currentInput < .51) {
+        currentinput = .5;
+    }
     displayCurrentInput();
 }
 

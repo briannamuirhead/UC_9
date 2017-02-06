@@ -34,6 +34,7 @@ QUnit.test("Sin radians test", function (assert) {
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
 });
 
+// Testing trig function cos in radians
 QUnit.test("Cos radians test", function (assert) {
     enterPi();
     storeOperator("/");
@@ -46,6 +47,7 @@ QUnit.test("Cos radians test", function (assert) {
     assert.deepEqual(document.getElementById("screen").value, "-1", "We expect the result to be -1.");
 });
 
+// Testing trig function tan in radians
 QUnit.test("Tan radians test", function (assert) {
     enterPi();
     storeOperator("/");
@@ -60,6 +62,7 @@ QUnit.test("Tan radians test", function (assert) {
     allClear();
 });
 
+// Test the sin degrees function
 QUnit.test("Sin degrees test", function (assert) {
     addDigit("3");
     addDigit("0");
@@ -68,7 +71,8 @@ QUnit.test("Sin degrees test", function (assert) {
     allClear();
 });
 
-QUnit.test("Cos degrees dest", function(assert) {
+// Test the cos degrees function
+QUnit.test("Cos degrees test", function(assert) {
     addDigit("6");
     addDigit("0");
     dcos();
@@ -80,6 +84,7 @@ QUnit.test("Cos degrees dest", function(assert) {
     allClear();
 });
 
+// Test the tan degrees function
 QUnit.test("Tan degrees test", function(assert) {
     addDigit("4");
     addDigit("5");
@@ -213,12 +218,14 @@ QUnit.test( "Store Operator Test", function( assert ) {
     currentInput = "0";
 });
 
+// Test the pi button
 QUnit.test("enterPi test", function(assert) {
     enterPi();
     assert.deepEqual(document.getElementById("screen").value, "3.141592653589793", "We expect the result to be 3.141592653589793.");
     allClear();
 });
 
+// Tests the calculate function
 QUnit.test("calculate test", function(assert) {
     addDigit("3");
     storeOperator("*");
@@ -232,5 +239,6 @@ QUnit.test("calculate test", function(assert) {
     addDigit("1");
     addDigit("0");
     calculate();
-    assert.deepEqual(document.getElementById("screen").value, "5", "We expect the result to be 5.")
+    assert.deepEqual(document.getElementById("screen").value, "5", "We expect the result to be 5.");
+    allClear();
 });

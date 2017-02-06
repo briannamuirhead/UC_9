@@ -14,6 +14,7 @@ QUnit.test( "Add decimal test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
     currentInput = "0";
 });
+
 // Testing trig function sin in radians
 QUnit.test("Sin radians test", function (assert) {
     enterPi();
@@ -31,8 +32,8 @@ QUnit.test("Sin radians test", function (assert) {
     calculate();
     rsin();
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
-
 });
+
 QUnit.test("Cos radians test", function (assert) {
     enterPi();
     storeOperator("/");
@@ -44,6 +45,7 @@ QUnit.test("Cos radians test", function (assert) {
     rcos();
     assert.deepEqual(document.getElementById("screen").value, "-1", "We expect the result to be -1.");
 });
+
 QUnit.test("Tan radians test", function (assert) {
     enterPi();
     storeOperator("/");
@@ -57,6 +59,7 @@ QUnit.test("Tan radians test", function (assert) {
     assert.deepEqual(document.getElementById("screen").value, "0", "We expect the result to be 0.");
     allClear();
 });
+
 QUnit.test("Sin degrees test", function (assert) {
     addDigit("3");
     addDigit("0");
@@ -64,6 +67,7 @@ QUnit.test("Sin degrees test", function (assert) {
     assert.deepEqual(document.getElementById("screen").value, "0.5", "We expect the result to be 0.5");
     allClear();
 });
+
 QUnit.test("Cos degrees dest", function(assert) {
     addDigit("6");
     addDigit("0");
@@ -75,6 +79,7 @@ QUnit.test("Cos degrees dest", function(assert) {
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
     allClear();
 });
+
 QUnit.test("Tan degrees test", function(assert) {
     addDigit("4");
     addDigit("5");
@@ -82,6 +87,7 @@ QUnit.test("Tan degrees test", function(assert) {
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.")
     allClear();
 });
+
 // Test changing the sign of a number
 QUnit.test( "Change sign test", function( assert ) {
     addDigit('3')
@@ -206,11 +212,13 @@ QUnit.test( "Store Operator Test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "600", "Passed - Expected 600");
     currentInput = "0";
 });
+
 QUnit.test("enterPi test", function(assert) {
     enterPi();
     assert.deepEqual(document.getElementById("screen").value, "3.141592653589793", "We expect the result to be 3.141592653589793.");
     allClear();
 });
+
 QUnit.test("calculate test", function(assert) {
     addDigit("3");
     storeOperator("*");

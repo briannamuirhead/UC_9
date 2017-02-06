@@ -128,9 +128,9 @@ QUnit.test( "Store Operator Test", function( assert ) {
     currentInput = "0";
     addDigit('6');
     storeOperator('p');
-    addDigit('2')
+    addDigit('3')
     calculate();
-    assert.equal(document.getElementById("screen").value, "36", "Passed - Expected 36");
+    assert.equal(document.getElementById("screen").value, "216", "Passed - Expected 216");
     currentInput = "0";
     addDigit('6');
     storeOperator('e');

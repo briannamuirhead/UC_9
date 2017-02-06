@@ -60,13 +60,10 @@ QUnit.test("Sin degrees test", function (assert) {
     addDigit("0");
     dsin();
     assert.deepEqual(document.getElementById("screen").value, "0.5", "We expect the result to be 0.5");
-    addDigit("9");
-    addDigit("0");
-    dsin();
-    assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
 });
 QUnit.test("Cos degrees dest", function(assert) {
-    addDigit("60");
+    addDigit("6");
+    addDigit("0");
     dcos();
     assert.deepEqual(document.getElementById("screen").value, "0.5", "We expect the result to be 0.5");
     addDigit("0");

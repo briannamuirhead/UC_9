@@ -14,7 +14,6 @@ QUnit.test( "Add decimal test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
     currentInput = "0";
 });
-<<<<<<< HEAD
 // Testing trig function sin in radians
 QUnit.test("Sin radians test", function (assert) {
     enterPi();
@@ -52,35 +51,37 @@ QUnit.test("Tan radians test", function (assert) {
     calculate();
     rtan();
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
+    allClear();
     enterPi();
     rtan();
     assert.deepEqual(document.getElementById("screen").value, "0", "We expect the result to be 0.");
+    allClear();
 });
 QUnit.test("Sin degrees test", function (assert) {
     addDigit("3");
     addDigit("0");
     dsin();
     assert.deepEqual(document.getElementById("screen").value, "0.5", "We expect the result to be 0.5");
+    allClear();
 });
 QUnit.test("Cos degrees dest", function(assert) {
     addDigit("6");
     addDigit("0");
     dcos();
     assert.deepEqual(document.getElementById("screen").value, "0.5", "We expect the result to be 0.5");
+    allClear();
     addDigit("0");
     dcos();
-    assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.")
+    assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
+    allClear();
 });
-QUnit.test("Tan degrees dest", function(assert) {
+QUnit.test("Tan degrees test", function(assert) {
     addDigit("4");
     addDigit("5");
     dtan();
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.")
+    allClear();
 });
-
-
-=======
-
 // Test changing the sign of a number
 QUnit.test( "Change sign test", function( assert ) {
     addDigit('3')
@@ -205,4 +206,23 @@ QUnit.test( "Store Operator Test", function( assert ) {
     assert.equal(document.getElementById("screen").value, "600", "Passed - Expected 600");
     currentInput = "0";
 });
->>>>>>> origin/master
+QUnit.test("enterPi test", function(assert) {
+    enterPi();
+    assert.deepEqual(document.getElementById("screen").value, "3.141592653589793", "We expect the result to be 3.141592653589793.");
+    allClear();
+});
+QUnit.test("calculate test", function(assert) {
+    addDigit("3");
+    storeOperator("*");
+    addDigit("2");
+    calculate();
+    assert.deepEqual(document.getElementById("screen").value, "6", "We expect the result to be 6.");
+    allClear();
+    addDigit("5");
+    addDigit("0");
+    storeOperator("/");
+    addDigit("1");
+    addDigit("0");
+    calculate();
+    assert.deepEqual(document.getElementById("screen").value, "5", "We expect the result to be 5.")
+});

@@ -72,7 +72,70 @@ QUnit.test( "Clear current", function( assert ) {
     clearCurrent();
     addDigit('2');
     calculate();
-    assert.equal(document.getElementById("screen").value, "52", "Passed - Expected ");
+    assert.equal(document.getElementById("screen").value, "52", "Passed - Expected 52");
     currentInput = "0";
 });
 
+// Test the all clear function
+QUnit.test( "All clear", function( assert ) {
+    addDigit('50');
+    storeOperator('+');
+    addDigit('4');
+    allClear();
+    addDigit('2');
+    calculate();
+    assert.equal(document.getElementById("screen").value, "2", "Passed - Expected 2");
+    currentInput = "0";
+});
+
+// Test finding the inverse of a number
+QUnit.test( "Inverse test", function( assert ) {
+    addDigit('5')
+    inverse();
+    assert.equal(document.getElementById("screen").value, "0.2", "Passed - Expected 0.2");
+    currentInput = "0";
+    addDigit('0.5');
+    inverse();
+    assert.equal(document.getElementById("screen").value, "2", "Passed - Expected 2");
+    currentInput = "0";
+});
+
+// Test the store operator function
+QUnit.test( "Store Operator Test", function( assert ) {
+    addDigit('6');
+    storeOperator('+');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "8", "Passed - Expected 8");
+    currentInput = "0";
+    addDigit('6');
+    storeOperator('-');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "4", "Passed - Expected 4");
+    currentInput = "0";
+    addDigit('6');
+    storeOperator('*');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "12", "Passed - Expected 12");
+    currentInput = "0";
+    addDigit('6');
+    storeOperator('/');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "3", "Passed - Expected 3");
+    currentInput = "0";
+    addDigit('6');
+    storeOperator('p');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "36", "Passed - Expected 36");
+    currentInput = "0";
+    addDigit('6');
+    storeOperator('e');
+    addDigit('2')
+    calculate();
+    assert.equal(document.getElementById("screen").value, "600", "Passed - Expected 600");
+    currentInput = "0";
+});

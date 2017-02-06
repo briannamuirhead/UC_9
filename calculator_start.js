@@ -1,10 +1,10 @@
 var currentInput = "0";
 var memory = "0";
 var operator = 0;
-
+var precision = 1000000;
 /**
-* This function displays the user's current input in the calculator's text box.
-*/
+ * This function displays the user's current input in the calculator's text box.
+ */
 function displayCurrentInput() {
     document.getElementById('screen').value = currentInput;
 }
@@ -47,8 +47,8 @@ function addDecimal() {
  */
 function allClear() {
     currentInput = "0";
-    operator = 0;                //clear operator
-    memory = "0";                  //clear memory
+    operator = 0; //clear operator
+    memory = "0"; //clear memory
     displayCurrentInput();
 }
 
@@ -58,20 +58,25 @@ function allClear() {
  */
 function storeOperator(op) {
     if (op.indexOf("*") > -1) {
-        operator = 1;                       // codes for *
-    } if (op.indexOf("/") > -1) {
-        operator = 2;                       // slash (divide)
-    } if (op.indexOf("+") > -1) {
-        operator = 3;                       // sum
-    } if (op.indexOf("-") > -1) {
-        operator = 4;                       // difference
-    } if (op.indexOf("p") > -1) {
-        operator = 5;                       // power
-    } if (op.indexOf("e") > -1) {
-        operator = 6;                       // exponent
+        operator = 1; // codes for *
+    }
+    if (op.indexOf("/") > -1) {
+        operator = 2; // slash (divide)
+    }
+    if (op.indexOf("+") > -1) {
+        operator = 3; // sum
+    }
+    if (op.indexOf("-") > -1) {
+        operator = 4; // difference
+    }
+    if (op.indexOf("p") > -1) {
+        operator = 5; // power
+    }
+    if (op.indexOf("e") > -1) {
+        operator = 6; // exponent
     }
 
-    memory = currentInput;                  //store value
+    memory = currentInput; //store value
     currentInput = "0";
     displayCurrentInput();
 }
@@ -82,26 +87,32 @@ function storeOperator(op) {
 function calculate() {
     if (operator == 1) {
         currentInput = eval(memory) * eval(currentInput);
-    } if (operator == 2) {
+    }
+    if (operator == 2) {
         currentInput = eval(memory) / eval(currentInput);
-    } if (currentInput == memory / 0) {
+    }
+    if (currentInput == memory / 0) {
         currentInput = "ERROR! You can't divide by zero.";
-    } if (operator == 3) {
+    }
+    if (operator == 3) {
         currentInput = eval(memory) + eval(currentInput);
-    } if (operator == 4) {
+    }
+    if (operator == 4) {
         currentInput = eval(memory) - eval(currentInput);
-    } if (operator == 5) {
-        currentInput = Math.pow(memory,currentInput);
-    } if (operator == 6) {
+    }
+    if (operator == 5) {
+        currentInput = Math.pow(memory, currentInput);
+    }
+    if (operator == 6) {
         var num = currentInput;
-        currentInput = memory * Math.pow(10,currentInput);
-        if (num > 15 ) {
+        currentInput = memory * Math.pow(10, currentInput);
+        if (num > 15) {
             currentInput = memory + "e" + num;
         }
     }
 
-    operator = 0;                // clear operator
-    memory = "0";              // clear memory
+    operator = 0; // clear operator
+    memory = "0"; // clear memory
     displayCurrentInput();
 }
 
@@ -136,7 +147,7 @@ function percentage() {
  */
 function factorial(number) {
     var result = 1;
-    for(i = number; i > 0; i--){
+    for (i = number; i > 0; i--) {
         result = result * i;
         console.log(result);
     }
@@ -179,10 +190,8 @@ function enterPi() {
  * Calculates the sine in radians.
  */
 function rsin() {
-    currentInput = Math.sin(currentInput);
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    }
+    var result = Math.sin(currentInput);
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
 
@@ -190,10 +199,8 @@ function rsin() {
  * Calculates the cosine in radians.
  */
 function rcos() {
-    currentInput = Math.cos(currentInput);
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    }
+    var result = Math.cos(currentInput);
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
 
@@ -201,12 +208,8 @@ function rcos() {
  * Calculates the tangent in radians.
  */
 function rtan() {
-    currentInput = Math.tan(currentInput);
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    } if (currentInput > .999999 && currentInput < 1.000001) {
-        currentInput = 1;
-    }
+    var result = Math.tan(currentInput);
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
 
@@ -214,10 +217,8 @@ function rtan() {
  * Calculates the sine in degrees.
  */
 function dsin() {
-    currentInput = Math.sin(currentInput * (Math.PI / 180));
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    }
+    var result = Math.sin(currentInput * (Math.PI / 180));
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
 
@@ -225,10 +226,8 @@ function dsin() {
  * Calculates the cosine in degrees.
  */
 function dcos() {
-    currentInput = Math.cos(currentInput * (Math.PI / 180));
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    }
+    var result = Math.cos(currentInput * (Math.PI / 180));
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
 
@@ -236,9 +235,7 @@ function dcos() {
  * Calculates the tangent in degrees.
  */
 function dtan() {
-    currentInput = Math.tan(currentInput * (Math.PI / 180));
-    if (currentInput < .00001 && currentInput > -.00001) {
-        currentInput = 0;
-    }
+    var result = Math.tan(currentInput * (Math.PI / 180));
+    currentInput = (Math.round(result * precision)) / precision;
     displayCurrentInput();
 }
